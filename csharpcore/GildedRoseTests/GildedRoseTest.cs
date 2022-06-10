@@ -9,7 +9,7 @@ namespace GildedRoseTests
     public class GildedRoseTest
     {
         [Fact]
-        public void foo()
+        public void QualityTest()
         {
             IList<Item> Items = new List<Item> { new Item { Id = 100, Name = "foo", SellBy = DateTime.Today.AddDays(10), Quality = 20, ProcessedOn = DateTime.Today } };
             GildedRose app = new GildedRose(Items);
@@ -18,37 +18,15 @@ namespace GildedRoseTests
 
             DateTime yesterday = DateTime.Today.AddDays(-1);
             Items = new List<Item>{
-                new Item {Id= 0, Name = "+5 Dexterity Vest", SellBy = DateTime.Today.AddDays(10), Quality = 20, ProcessedOn = yesterday},
-                new Item {Id= 1, Name = "Aged Brie", SellBy = DateTime.Today.AddDays(2), Quality = 0, ProcessedOn = yesterday},
-                new Item {Id= 2, Name = "Elixir of the Mongoose", SellBy = DateTime.Today.AddDays(5), Quality = 7, ProcessedOn = yesterday},
-                new Item {Id= 3, Name = "Sulfuras, Hand of Ragnaros", SellBy = DateTime.Today.AddDays(0), Quality = 80, ProcessedOn = yesterday},
-                new Item {Id= 4, Name = "Sulfuras, Eye of Ragnaros", SellBy = DateTime.Today.AddDays(-1), Quality = 80, ProcessedOn = yesterday},
-                new Item
-                {
-                    Id= 5,
-                    Name = "Backstage pass for Jason Isbell concert",
-                    SellBy = DateTime.Today.AddDays(15),
-                    Quality = 20,
-                    ProcessedOn = yesterday
-                },
-                new Item
-                {
-                    Id= 6,
-                    Name = "Backstage pass for Lucero concert",
-                    SellBy = DateTime.Today.AddDays(10),
-                    Quality = 49,
-                    ProcessedOn = yesterday
-                },
-                new Item
-                {
-                    Id = 7,
-                    Name = "Backstage pass Turnpike Troubadours concert",
-                    SellBy = DateTime.Today.AddDays(5),
-                    Quality = 39,
-                    ProcessedOn = yesterday
-                },
-                // this conjured item does not work properly yet
-                new Item {Id = 8, Name = "Conjured Mana Cake", SellBy = DateTime.Today.AddDays(3), Quality = 6, ProcessedOn = yesterday}
+                new Item {Id= 0, Name = "+5 Dexterity Vest", SellIn = 10, SellBy = DateTime.Today.AddDays(10), Quality = 20, ProcessedOn = yesterday},
+                new Item {Id= 1, Name = "Aged Brie", SellIn = 2, SellBy = DateTime.Today.AddDays(2), Quality = 0, ProcessedOn = yesterday},
+                new Item {Id= 2, Name = "Elixir of the Mongoose", SellIn = 5, SellBy = DateTime.Today.AddDays(5), Quality = 7, ProcessedOn = yesterday},
+                new Item {Id= 3, Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, SellBy = DateTime.Today.AddDays(0), Quality = 80, ProcessedOn = yesterday},
+                new Item {Id= 4, Name = "Sulfuras, Eye of Ragnaros", SellIn = -1, SellBy = DateTime.Today.AddDays(-1), Quality = 80, ProcessedOn = yesterday},
+                new Item {Id= 5, Name = "Backstage pass for Jason Isbell concert", SellIn = 15, SellBy = DateTime.Today.AddDays(15), Quality = 20, ProcessedOn = yesterday},
+                new Item {Id= 6, Name = "Backstage pass for Lucero concert", SellIn = 10, SellBy = DateTime.Today.AddDays(10), Quality = 49, ProcessedOn = yesterday},
+                new Item {Id= 7,Name = "Backstage pass Turnpike Troubadours concert", SellIn = 5, SellBy = DateTime.Today.AddDays(5), Quality = 39, ProcessedOn = yesterday},
+                new Item {Id = 8, Name = "Conjured Mana Cake", SellIn = 3, SellBy = DateTime.Today.AddDays(3), Quality = 6, ProcessedOn = yesterday}
             };
 
             app = new GildedRose(Items);
