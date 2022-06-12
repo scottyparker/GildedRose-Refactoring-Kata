@@ -20,6 +20,7 @@ namespace GildedRoseKata
             {
                 item.Quality = SetQuality(item.Quality, true);
                 item.ProcessedOn = DateTime.Now;
+                item.SellIn--;
             }
             itemList = Items.Where(c => c.Name.Contains("Sulfuras")).ToList(); // "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
             foreach (var item in itemList)
@@ -30,6 +31,7 @@ namespace GildedRoseKata
             foreach (var item in itemList)
             {
                 var daysToConcert = (item.SellBy - DateTime.Now).TotalDays;
+                item.SellIn--;
                 if (daysToConcert <= 0)
                 {
                     item.Quality = 0;
@@ -57,6 +59,7 @@ namespace GildedRoseKata
             {
                 item.Quality = SetQuality(item.Quality);
                 item.ProcessedOn = DateTime.Now;
+                item.SellIn--;
             }
         }
 
